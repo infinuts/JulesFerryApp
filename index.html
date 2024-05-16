@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>لعبة الهمزة</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #e7eff6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('y-so-serious-white.png'); /* Ensure the file name matches your pattern image */
+    background-repeat: repeat; /* This will tile the pattern across the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+   .container {
+      text-align: center;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 400px; /* Increased width for better UI */
+    }
+   .word {
+      font-size: 24px;
+      margin: 20px;
+      color: #333;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+   .result,.score {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #888;
+    }
+   .score {
+      color: green;
+      font-weight: bold;
+    }
+    .left-button {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+  }
+
+  .top-button {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .additional-button {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .credits-button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+
+.credits-button:hover {
+    background-color: #45a049;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: center; /* Aligns buttons to the center horizontally */
+    padding: 10px 0; /* Adds some padding above and below the buttons */
+    position: absolute; /* Positions the navbar at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent; /* Light background for the nav bar */
+}
+
+.nav-bar button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 0 10px; /* Adds horizontal space between buttons */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.nav-bar button:hover {
+    background-color: #369636; /* Darker green on hover */
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="nav-bar">
+    <button onClick="window.location.href='ismfa3il.html'">اسم الفاعل</button>
+    <button onClick="window.location.href='maf3oul.html'">اسم مفعول</button>
+    <button onClick="window.location.href='ismala.html'">اسم الألة</button>
+</div>
+  <button class="credits-button" onClick="window.location.href='credits.html'">Credits</button>
+  <button class="left-button" onClick="window.location.href='lessons.html'">الدروس</button>
+  <div class="container">
+    <div id="wordDisplay" class="word"></div>
+    <button onClick="checkAnswer('ء')">ء</button>
+    <button onClick="checkAnswer('ؤ')">ؤ</button>
+    <button onClick="checkAnswer('ئ')">ئ</button>
+    <button onClick="checkAnswer('أ')">أ</button>
+    <div id="result" class="result"></div>
+    <div id="score" class="score"></div>
+  </div>
+  <script>
+    const words = [
+      {"word": "هَيْءة", "correct": "ئ"},
+      {"word": "مءمن", "correct": "ؤ"},
+      {"word": "تَفاءل", "correct": "ؤ"},
+      {"word": "تَبَوُّء", "correct": "أ"},
+      {"word": "شاطِء", "correct": "ئ"},
+      {"word": "سءم", "correct": "ئ"},
+      {"word": "شَءن", "correct": "أ"},
+      {"word": " فَءس", "correct": "أ"},
+      {"word": "بِءر", "correct": "ئ"},
+      {"word": "كَءس", "correct": "أ"},
+      {"word": "مءتمر", "correct": "ؤ"},
+      {"word": "رءة", "correct": "ئ"},
+      {"word": " فءران", "correct": "ئ"},
+      {"word": "مءة", "correct": "ئ"},
+      {"word": "ذءب", "correct": "ئ"},
+      {"word": "تءمل", "correct": "أ"},
+      {"word": "مءلم", "correct": "ؤ"},
+      {"word": "شيء", "correct": "ء"},
+      {"word": "تءخر", "correct": "أ"},
+      {"word": "مسْءلة", "correct": "أ"},
+      // Add up to 100 words with similar structure
+      ];
+    let currentWordIndex = 0;
+    let correctCount = 0;
+
+    function displayWord() {
+      document.getElementById('wordDisplay').textContent = words[currentWordIndex].word;
+    }
+
+    function checkAnswer(answer) {
+      if (answer === words[currentWordIndex].correct) {
+        document.getElementById('result').textContent = 'صحيح';
+        correctCount++;
+        currentWordIndex++;
+        updateUIAfterIncrement();
+      } else {
+        document.getElementById('result').textContent = 'خطأ';
+      }
+      updateScore();
+    }
+
+    function updateScore() {
+      document.getElementById('score').textContent = 'الأجوبة الصحيحة: ' + correctCount;
+    }
+
+    function updateUIAfterIncrement() {
+      if (currentWordIndex < words.length) {
+        displayWord();
+      } else {
+        document.getElementById('result').textContent = 'لقد انتهت اللعبة!';
+      }
+    }
+
+    function restartGame() {
+      currentWordIndex = 0;
+      correctCount = 0;
+      updateUIAfterIncrement();
+      updateScore();
+      document.getElementById('result').textContent = '';
+    }
+
+    // Initialize the game by displaying the first word
+    displayWord();
+  </script>
+</body>
+</html>

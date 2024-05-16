@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>لعبة الهمزة</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #e7eff6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('y-so-serious-white.png'); /* Ensure the file name matches your pattern image */
+    background-repeat: repeat; /* This will tile the pattern across the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+   .container {
+      text-align: center;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 400px; /* Increased width for better UI */
+    }
+   .word {
+      font-size: 24px;
+      margin: 20px;
+      color: #333;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+   .result,.score {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #888;
+    }
+   .score {
+      color: green;
+      font-weight: bold;
+    }
+    .left-button {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+  }
+
+  .top-button {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .additional-button {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .credits-button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+
+.credits-button:hover {
+    background-color: #45a049;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: center; /* Aligns buttons to the center horizontally */
+    padding: 10px 0; /* Adds some padding above and below the buttons */
+    position: absolute; /* Positions the navbar at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent; /* Light background for the nav bar */
+}
+
+.nav-bar button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 0 10px; /* Adds horizontal space between buttons */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.nav-bar button:hover {
+    background-color: #369636; /* Darker green on hover */
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="nav-bar">
+    <button onClick="window.location.href='ismfa3il.html'">En Devlopement</button>
+    <button onClick="window.location.href='maf3oul.html'">En Devlopement</button>
+    <button onClick="window.location.href='ismala.html'">En Devlopement</button>
+</div>
+  <button class="credits-button" onClick="window.location.href='credits.html'">Credits</button>
+  <button class="left-button" onClick="window.location.href='lessons.html'">Les Lessons</button>
+  <div class="container">
+    <div id="wordDisplay" class="word"></div>
+    <button onClick="checkAnswer('s')">-s</button>
+    <button onClick="checkAnswer('x')">-x</button>
+    <button onClick="checkAnswer('aux')">-aux</button>
+    <div id="result" class="result"></div>
+    <div id="score" class="score"></div>
+  </div>
+  <script>
+    const words = [
+      {"word": "_des chat", "correct": "s"},
+      {"word": "_des chape", "correct": "aux"},
+      {"word": "_des bate", "correct": "aux"},
+      {"word": "_des journ", "correct": "aux"},
+      {"word": "_des jeu", "correct": "x"},
+      {"word": "_des table", "correct": "aux"},
+      {"word": "_des trav", "correct": "aux"},
+      {"word": "_des bijou", "correct": "x"},
+      {"word": "_des chien", "correct": "s"},
+      {"word": "_des anima", "correct": "s"},
+      {"word": "_des bureau", "correct": "x"},
+      {"word": "_des oiseau", "correct": "x"},
+      {"word": "_des jeu", "correct": "x"},
+      {"word": "_des livre", "correct": "s"},
+      {"word": "_des travail", "correct": "s"},
+      {"word": "_des chev", "correct": "aux"},
+      {"word": "_des bijou", "correct": "x"},
+      {"word": "_des chape", "correct": "aux"},
+      {"word": "_des neveu", "correct": "x"},
+      {"word": "_des table", "correct": "aux"},
+      {"word": "_des chien", "correct": "s"},
+      {"word": "_des trav", "correct": "aux"},
+      {"word": "_des oise", "correct": "aux"},
+      {"word": "_des chat", "correct": "s"},
+      {"word": "_des animal", "correct": "s"},
+      {"word": "_des chevaux", "correct": "aux"},
+      {"word": "_des jeu", "correct": "x"},
+      {"word": "_des livre", "correct": "s"},
+      {"word": "_des bureau", "correct": "x"},
+      {"word": "_des chapeau", "correct": "x"},
+      {"word": "_des neveu", "correct": "x"}
+
+
+
+
+
+
+
+
+
+      // Add up to 100 words with similar structure
+      ];
+    let currentWordIndex = 0;
+    let correctCount = 0;
+
+    function displayWord() {
+      document.getElementById('wordDisplay').textContent = words[currentWordIndex].word;
+    }
+
+    function checkAnswer(answer) {
+      if (answer === words[currentWordIndex].correct) {
+        document.getElementById('result').textContent = 'Correcte';
+        correctCount++;
+        currentWordIndex++;
+        updateUIAfterIncrement();
+      } else {
+        document.getElementById('result').textContent = 'Faux';
+      }
+      updateScore();
+    }
+
+    function updateScore() {
+      document.getElementById('score').textContent = 'Les Reponses Correctes:' + correctCount;
+    }
+
+    function updateUIAfterIncrement() {
+      if (currentWordIndex < words.length) {
+        displayWord();
+      } else {
+        document.getElementById('result').textContent = "C'est fini :D";
+      }
+    }
+
+    function restartGame() {
+      currentWordIndex = 0;
+      correctCount = 0;
+      updateUIAfterIncrement();
+      updateScore();
+      document.getElementById('result').textContent = '';
+    }
+
+    // Initialize the game by displaying the first word
+    displayWord();
+  </script>
+</body>
+</html>
