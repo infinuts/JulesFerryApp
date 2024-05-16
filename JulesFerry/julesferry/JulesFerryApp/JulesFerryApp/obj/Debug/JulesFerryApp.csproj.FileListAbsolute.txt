@@ -1,0 +1,16 @@
+C:\Users\pc\Desktop\JulesFerry\julesferry\JulesFerryApp\JulesFerryApp\bin\Debug\JulesFerryApp.exe.config
+C:\Users\pc\Desktop\JulesFerry\julesferry\JulesFerryApp\JulesFerryApp\bin\Debug\JulesFerryApp.exe
+C:\Users\pc\Desktop\JulesFerry\julesferry\JulesFerryApp\JulesFerryApp\bin\Debug\JulesFerryApp.pdb
+C:\Users\pc\Desktop\JulesFerry\julesferry\JulesFerryApp\JulesFerryApp\obj\Debug\JulesFerryApp.csproj.AssemblyReference.cache
+C:\Users\pc\Desktop\JulesFerry\julesferry\JulesFerryApp\JulesFerryApp\obj\Debug\MainWindow.baml
+C:\Users\pc\Desktop\JulesFerry\julesferry\JulesFerryApp\JulesFerryApp\obj\Debug\ComingSoonWindow.baml
+C:\Users\pc\Desktop\JulesFerry\julesferry\JulesFerryApp\JulesFerryApp\obj\Debug\MainWindow.g.cs
+C:\Users\pc\Desktop\JulesFerry\julesferry\JulesFerryApp\JulesFerryApp\obj\Debug\ComingSoonWindow.g.cs
+C:\Users\pc\Desktop\JulesFerry\julesferry\JulesFerryApp\JulesFerryApp\obj\Debug\App.g.cs
+C:\Users\pc\Desktop\JulesFerry\julesferry\JulesFerryApp\JulesFerryApp\obj\Debug\JulesFerryApp_MarkupCompile.cache
+C:\Users\pc\Desktop\JulesFerry\julesferry\JulesFerryApp\JulesFerryApp\obj\Debug\JulesFerryApp.g.resources
+C:\Users\pc\Desktop\JulesFerry\julesferry\JulesFerryApp\JulesFerryApp\obj\Debug\JulesFerryApp.Properties.Resources.resources
+C:\Users\pc\Desktop\JulesFerry\julesferry\JulesFerryApp\JulesFerryApp\obj\Debug\JulesFerryApp.csproj.GenerateResource.cache
+C:\Users\pc\Desktop\JulesFerry\julesferry\JulesFerryApp\JulesFerryApp\obj\Debug\JulesFerryApp.csproj.CoreCompileInputs.cache
+C:\Users\pc\Desktop\JulesFerry\julesferry\JulesFerryApp\JulesFerryApp\obj\Debug\JulesFerryApp.exe
+C:\Users\pc\Desktop\JulesFerry\julesferry\JulesFerryApp\JulesFerryApp\obj\Debug\JulesFerryApp.pdb

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation de l'École Jules Ferry</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            overflow: hidden;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .logo img {
+            height: 50px;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        header nav a:hover {
+            color: #18bc9c;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .slide {
+            display: none;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        .slide.active {
+            display: block;
+            opacity: 1;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #18bc9c;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        .nav-buttons {
+            position: fixed;
+            bottom: 60px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .nav-buttons button {
+            background-color: #18bc9c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-buttons button:hover {
+            background-color: #139f82;
+        }
+        @media (max-width: 768px) {
+            header nav {
+                display: none;
+            }
+            header .logo {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            header nav a {
+                margin: 0 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://via.placeholder.com/150x50" alt="Logo de l'école">
+        </div>
+        <nav>
+            <a href="#ecole">Notre École</a>
+            <a href="#evenements">Événements</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div id="slide-1" class="slide active">
+            <h1>Bienvenue à l'École Jules Ferry</h1>
+            <p>Notre école, située au cœur du Maroc, est un lieu d'apprentissage et de croissance pour les enfants de la communauté. Nous offrons un environnement accueillant et stimulant où chaque élève peut s'épanouir.</p>
+        </div>
+
+        <div id="slide-2" class="slide">
+            <h2>Notre École</h2>
+            <p>L'école Jules Ferry propose un programme éducatif complet visant à développer les compétences académiques, sociales et personnelles de chaque élève.</p>
+        </div>
+
+        <div id="slide-3" class="slide">
+            <h2>Nos Valeurs</h2>
+            <p>Respect, intégrité, et excellence sont les piliers de notre approche éducative.</p>
+        </div>
+
+        <div id="slide-4" class="slide">
+            <h2>Activités Extra-scolaires</h2>
+            <p>Nous offrons une variété d'activités extra-scolaires pour encourager la créativité et le développement physique.</p>
+        </div>
+
+        <div id="slide-5" class="slide">
+            <h2>Nos Installations</h2>
+            <p>Notre école dispose de salles de classe modernes, de laboratoires bien équipés, et de vastes terrains de sport.</p>
+        </div>
+
+        <div id="slide-6" class="slide">
+            <h2>Événements à Venir</h2>
+            <p>Nous sommes ravis de vous annoncer notre prochain événement : "أبواب مفتوحة". Rejoignez-nous pour une journée portes ouvertes le 1er Juin et découvrez tout ce que notre école a à offrir !</p>
+        </div>
+
+        <div id="slide-7" class="slide">
+            <h2>Événements Passés</h2>
+            <p>Découvrez les moments forts de nos événements précédents et voyez comment nous célébrons nos succès.</p>
+        </div>
+
+        <div id="slide-8" class="slide">
+            <h2>Projets Étudiants</h2>
+            <p>Les élèves de Jules Ferry se sont investis dans des projets créatifs et innovants tout au long de l'année.</p>
+        </div>
+
+        <div id="slide-9" class="slide">
+            <h2>Projets Artistiques</h2>
+            <p>Nos élèves ont réalisé des œuvres d'art impressionnantes qui seront exposées lors de la journée portes ouvertes.</p>
+        </div>
+
+        <div id="slide-10" class="slide">
+            <h2>Projets Scientifiques</h2>
+            <p>Des projets scientifiques innovants qui démontrent la compréhension et l'application des concepts appris en classe.</p>
+        </div>
+
+        <div id="slide-11" class="slide">
+            <h2>Projets Technologiques</h2>
+            <p>Nos élèves ont développé des projets technologiques qui montrent leur compétence en programmation et en robotique.</p>
+        </div>
+
+        <div id="slide-12" class="slide">
+            <h2>Travaux Manuels</h2>
+            <p>Les travaux manuels créés par nos élèves illustrent leur créativité et leur habileté manuelle.</p>
+        </div>
+
+        <div id="slide-13" class="slide">
+            <h2>Reconnaissance</h2>
+            <p>Nous tenons à remercier tous les parents et enseignants pour leur soutien continu.</p>
+        </div>
+
+        <div id="slide-14" class="slide">
+            <h2>Nos Partenaires</h2>
+            <p>Merci à nos partenaires pour leur contribution et leur engagement envers notre école.</p>
+        </div>
+
+        <div id="slide-15" class="slide">
+            <h2>Contact</h2>
+            <p>Pour plus d'informations, veuillez nous contacter à <a href="mailto:contact@ecole-julesferry.fr">contact@ecole-julesferry.fr</a>.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; École Jules Ferry, Créé par ChatGPT</p>
+    </footer>
+
+    <div class="nav-buttons">
+        <button onclick="prevSlide()">Précédent</button>
+        <button onclick="nextSlide()">Suivant</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>تمارين اسم المفعول</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e7eff6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('y-so-serious-white.png'); /* Ensure the file name matches your pattern image */
+    background-repeat: repeat; /* This will tile the pattern across the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+  .container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 400px;
+  }
+  .word {
+    font-size: 24px;
+    margin: 20px;
+    color: #333;
+  }
+  input[type="text"] {
+    font-size: 18px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  .result {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #888;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div id="wordDisplay" class="word"></div>
+  <input type="text" id="userInput" placeholder="أدخل اسم المفعول هنا">
+  <button onClick="checkAnswer()">تحقق</button>
+  <div id="result" class="result"></div>
+</div>
+<script>
+const exercises = [
+  {"word": "أكل", "correct": "مأكول"},
+  {"word": "كتب", "correct": "مكتوب"},
+  {"word": "غسل", "correct": "مغسول"},
+  {"word": "رسم", "correct": "مرسوم"},
+  {"word": "شرب", "correct": "مشروب"},
+  {"word": "طبخ", "correct": "مطبوخ"},
+  {"word": "نظف", "correct": "منظف"},
+  {"word": "غطى", "correct": "مغطى"},
+  {"word": "زرع", "correct": "مزروع"},
+  {"word": "بنى", "correct": "مبني"},
+  {"word": "خيط", "correct": "مخيط"},
+  {"word": "سمع", "correct": "مسموع"},
+  {"word": "علم", "correct": "معلوم"},
+  {"word": "قدم", "correct": "مقدم"},
+  {"word": "صور", "correct": "مصور"},
+  {"word": "ضرب", "correct": "مضروب"},
+  {"word": "خلط", "correct": "مخلوط"},
+  {"word": "حفظ", "correct": "محفوظ"},
+  {"word": "كسر", "correct": "مكسور"},
+  {"word": "قطع", "correct": "مقطوع"},
+  {"word": "لف", "correct": "ملفوف"},
+  {"word": "ملأ", "correct": "مملوء"},
+  {"word": "نشر", "correct": "منشور"},
+  {"word": "هدم", "correct": "مهدوم"},
+  {"word": "رتب", "correct": "مرتب"},
+  {"word": "خبز", "correct": "مخبوز"},
+  {"word": "درس", "correct": "مدروس"},
+  {"word": "سافر", "correct": "مسافر"},
+  {"word": "وصل", "correct": "موصول"},
+  {"word": "فتح", "correct": "مفتوح"},
+  {"word": "غلق", "correct": "مغلق"}
+];
+let currentExercise = 0;
+
+function displayWord() {
+  document.getElementById('wordDisplay').textContent = exercises[currentExercise].word;
+  document.getElementById('userInput').value = '';
+  document.getElementById('result').textContent = '';
+}
+
+function checkAnswer() {
+  const userInput = document.getElementById('userInput').value;
+  if (userInput.trim() === exercises[currentExercise].correct) {
+    document.getElementById('result').textContent = 'صحيح';
+    if (currentExercise < exercises.length - 1) {
+      currentExercise++;
+      displayWord();
+    } else {
+      document.getElementById('result').textContent = 'تم الانتهاء من جميع التمارين!';
+    }
+  } else {
+    document.getElementById('result').textContent = 'خطأ';
+  }
+}
+
+window.onload = function() {
+  displayWord();
+};
+</script>
+</body>
+</html>
