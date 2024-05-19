@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>لعبة البادئات واللواحق</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #e7eff6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-image: url('y-so-serious-white.png'); /* Ensure the file name matches your pattern image */
+      background-repeat: repeat; /* This will tile the pattern across the background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 400px; /* Increased width for better UI */
+    }
+    
+    .word {
+     font-size: 24px;
+     margin: 20px;
+     color: #333;
+    }
+
+
+    input[type="text"] {
+      font-size: 18px;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      text-align: left; /* Align text to the left */
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .result, .score {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #888;
+    }
+
+    .score {
+      color: green;
+      font-weight: bold;
+    }
+
+    .left-button {
+      position: fixed;
+      left: 10px;
+      top: 10px;
+    }
+
+    .top-button {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .additional-button {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .credits-button {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 18px;
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+    }
+
+    .credits-button:hover {
+      background-color: #45a049;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: center; /* Aligns buttons to the center horizontally */
+      padding: 10px 0; /* Adds some padding above and below the buttons */
+      position: absolute; /* Positions the navbar at the top */
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: transparent; /* Light background for the nav bar */
+    }
+
+    .nav-bar button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 0 10px; /* Adds horizontal space between buttons */
+      background-color: #4CAF50; /* Green background */
+      color: white; /* White text */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
+    }
+
+    .nav-bar button:hover {
+      background-color: #369636; /* Darker green on hover */
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-bar">
+    <button onClick="window.location.href='index.html'">Retourner</button>
+  </div>
+  <div class="container">
+    <div id="wordDisplay" class="word"></div>
+    <input type="text" id="prefixInput" placeholder="Entrez le préfixe" onkeypress="checkEnter(event)">
+    <div id="result" class="result"></div>
+    <div id="score" class="score"></div>
+  </div>
+  <script>
+    const words = [
+    {"word": "dire", "correct": "re"},
+    {"word": "faire", "correct": "re"},
+    {"word": "connu", "correct": "in"},
+    {"word": "utile", "correct": "in"},
+    {"word": "content", "correct": "mé"},
+    {"word": "faire", "correct": "re"},
+    {"word": "possible", "correct": "im"},
+    {"word": "visible", "correct": "in"},
+    {"word": "responsable", "correct": "ir"},
+    {"word": "tourner", "correct": "re"},
+    {"word": "poli", "correct": "im"},
+    {"word": "réel", "correct": "ir"},
+    {"word": "logique", "correct": "il"},
+    {"word": "patient", "correct": "im"},
+    {"word": "régulier", "correct": "ir"},
+    {"word": "actif", "correct": "in"},
+    {"word": "heureux", "correct": "mal"},
+    {"word": "prudent", "correct": "im"},
+    {"word": "mature", "correct": "im"},
+    {"word": "possible", "correct": "im"},
+    {"word": "adroit", "correct": "mal"},
+    {"word": "respectueux", "correct": "ir"},
+    {"word": "organisé", "correct": "dés"},
+    ];
+    let currentWordIndex = 0;
+    let correctCount = 0;
+
+    function displayWord() {
+      document.getElementById('wordDisplay').textContent = words[currentWordIndex].word;
+    }
+
+    function checkAnswer() {
+      const prefix = document.getElementById('prefixInput').value.toLowerCase();
+      if (prefix === words[currentWordIndex].correct) {
+        document.getElementById('result').textContent = 'Correcte';
+        correctCount++;
+        currentWordIndex++;
+        updateUIAfterIncrement();
+      } else {
+        document.getElementById('result').textContent = 'Faux';
+      }
+      updateScore();
+    }
+
+    function updateScore() {
+      document.getElementById('score').textContent = 'Les Réponses Correctes: ' + correctCount;
+    }
+
+    function updateUIAfterIncrement() {
+      if (currentWordIndex < words.length) {
+        displayWord();
+        document.getElementById('prefixInput').value = ''; // Clear the input field
+      } else {
+        document.getElementById('result').textContent = "C'est fini :D";
+      }
+    }
+
+    function restartGame() {
+      currentWordIndex = 0;
+      correctCount = 0;
+      updateUIAfterIncrement();
+      updateScore();
+      document.getElementById('result').textContent = '';
+    }
+
+    // Initialize the game by displaying the first word
+    displayWord();
+
+    // Function to check if Enter key is pressed
+    function checkEnter(event) {
+      if (event.key === 'Enter') {
+        checkAnswer();
+      }
+    }
+  </script>
+</body>
+</html>
