@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>لعبة الهمزة</title>
+  <title>Jules Ferry</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -133,9 +133,9 @@
 </head>
 <body>
   <div class="nav-bar">
-    <button onClick="window.location.href='ismfa3il.html'">En Devlopement</button>
-    <button onClick="window.location.href='maf3oul.html'">En Devlopement</button>
-    <button onClick="window.location.href='ismala.html'">En Devlopement</button>
+    <button onClick="window.location.href='1.html'">les prefixes et les suffixes</button>
+    <button onClick="window.location.href='maf3oul.html'">.</button>
+    <button onClick="window.location.href='ismala.html'">.</button>
 </div>
   <button class="credits-button" onClick="window.location.href='credits.html'">Credits</button>
   <button class="left-button" onClick="window.location.href='lessons.html'">Les Lessons</button>
@@ -153,7 +153,6 @@
       {"word": "_des chape", "correct": "aux"},
       {"word": "_des bate", "correct": "aux"},
       {"word": "_des journ", "correct": "aux"},
-      {"word": "_des jeu", "correct": "x"},
       {"word": "_des table", "correct": "aux"},
       {"word": "_des trav", "correct": "aux"},
       {"word": "_des bijou", "correct": "x"},
@@ -161,33 +160,19 @@
       {"word": "_des anima", "correct": "s"},
       {"word": "_des bureau", "correct": "x"},
       {"word": "_des oiseau", "correct": "x"},
-      {"word": "_des jeu", "correct": "x"},
-      {"word": "_des livre", "correct": "s"},
       {"word": "_des travail", "correct": "s"},
       {"word": "_des chev", "correct": "aux"},
       {"word": "_des bijou", "correct": "x"},
-      {"word": "_des chape", "correct": "aux"},
       {"word": "_des neveu", "correct": "x"},
-      {"word": "_des table", "correct": "aux"},
       {"word": "_des chien", "correct": "s"},
       {"word": "_des trav", "correct": "aux"},
       {"word": "_des oise", "correct": "aux"},
-      {"word": "_des chat", "correct": "s"},
       {"word": "_des animal", "correct": "s"},
       {"word": "_des chevaux", "correct": "aux"},
-      {"word": "_des jeu", "correct": "x"},
       {"word": "_des livre", "correct": "s"},
       {"word": "_des bureau", "correct": "x"},
       {"word": "_des chapeau", "correct": "x"},
       {"word": "_des neveu", "correct": "x"}
-
-
-
-
-
-
-
-
 
       // Add up to 100 words with similar structure
       ];
@@ -230,6 +215,11 @@
       document.getElementById('result').textContent = '';
     }
 
+    // Initialize the game by displaying the first word
+    displayWord();
+  </script>
+</body>
+</html>
     // Initialize the game by displaying the first word
     displayWord();
   </script>
